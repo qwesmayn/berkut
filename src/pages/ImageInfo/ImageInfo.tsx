@@ -7,6 +7,7 @@ import { ImageModal } from "@/shared/ui/ImageModal";
 import { ImageWithBlur } from "@/widgets/ImageInfo";
 import { useQuery } from "@tanstack/react-query";
 import { getImageById } from "@/entities/image/api/getImageById";
+import { Skeleton } from "@/shared/ui/Skeleton";
 
 export const ImageInfo: FC = () => {
   const { id } = useParams();
@@ -56,8 +57,12 @@ export const ImageInfo: FC = () => {
             <div className="w-[56px] h-[56px] bg-gray-300 animate-pulse rounded-md" />
             {isLoading ? (
               <div className="flex flex-col gap-2">
-                <div className="w-[150px] h-[20px] bg-gray-300 animate-pulse rounded-md" />
-                <div className="w-[150px] h-[20px] bg-gray-300 animate-pulse rounded-md" />
+                  <Skeleton
+                    className="w-[100px] h-[20px]"
+                  />
+                  <Skeleton
+                    className="w-[100px] h-[20px]"
+                  />
               </div>
             ) : (
               <div className="text-[#F2F2F2]">
@@ -94,7 +99,9 @@ export const ImageInfo: FC = () => {
           </div>
         </div>
         {isLoading ? (
-          <div className="w-[100%] h-[744px] bg-gray-300 animate-pulse rounded-md" />
+          <Skeleton
+            className="w-[100%] h-[744px]"
+          />
         ) : (
           data && <ImageWithBlur image={data} onClick={openModal} />
         )}
