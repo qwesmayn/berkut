@@ -16,12 +16,12 @@ export const ImageWithBlur: FC<ImageWithBlurProps> = ({ image, onClick }) => {
   };
 
   return (
-    <div className="h-[744px] w-max mx-auto relative">
+    <div className="sm:h-[744px] xl:w-max w-full mx-auto relative">
       <div className="relative h-full w-full">
         <img
           src={image.urls.small}
           alt={image.user.name}
-          className={`absolute inset-0 h-full w-full object-contain rounded-md blur-xl scale-105 transition-opacity duration-300 ${
+          className={`absolute inset-0 h-full w-full object-contain rounded-md blur-xl transition-opacity duration-300 ${
             isImageLoaded ? "opacity-0" : "opacity-100"
           }`}
         />

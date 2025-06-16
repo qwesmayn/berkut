@@ -48,10 +48,10 @@ export const ImageInfo: FC = () => {
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(${data?.urls.thumb})`,
       }}
-      className="flex-1 bg-cover bg-no-repeat bg-center"
+      className="flex-1 bg-cover bg-no-repeat bg-center 2xl:px-0 px-3 pt-20 2xl:pt-0"
     >
       <section className="max-w-[1479px] mx-auto pt-10 space-y-10">
-        <div className="flex justify-between items-center">
+        <div className="flex sm:justify-between justify-center items-center sm:flex-row flex-col gap-y-5">
           <div className="flex gap-[10px]">
             <div className="w-[56px] h-[56px] bg-gray-300 animate-pulse rounded-md" />
             {isLoading ? (
