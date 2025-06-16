@@ -15,6 +15,11 @@ export const Favorites: FC = () => {
           {favorites.map((favorite: IImage) => (
             <ImageCard key={favorite.id} image={favorite} />
           ))}
+          {favorites.length === 0 && (
+            <div className="text-center text-2xl font-bold">
+              <p>Избранное пусто</p>
+            </div>
+          )}
         </div>
       </section>
     </main>
