@@ -10,7 +10,7 @@ import { getImageById } from "@/entities/image/api/getImageById";
 
 export const ImageInfo: FC = () => {
   const { id } = useParams();
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["image", id],
     queryFn: () => getImageById(id as string),
   });

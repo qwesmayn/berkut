@@ -17,7 +17,7 @@ export const ImageCard: FC<ImageCardProps> = memo(({ image }) => {
   return (
     <button
       onClick={handleClick}
-      className="w-[473px] h-[440px] cursor-pointer hover:scale-103 transition-transform duration-300"
+      className="lg:w-[473px] lg:h-[440px] w-[334px] h-[311px] cursor-pointer hover:scale-103 transition-transform duration-300 will-change-transform"
     >
       <img
         src={image.urls.small}

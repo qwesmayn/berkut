@@ -39,13 +39,13 @@ export const HomePage: FC = () => {
     <main className="space-y-[114px] pb-[114px]">
       <section className="text-white">
         <div className="flex items-center bg-[url('@shared/assets/background/background.png')] bg-cover bg-center h-[268px]">
-          <div className="relative max-w-[866px] w-full mx-auto flex items-center justify-center">
+          <div className="relative max-w-[866px] w-full mx-auto flex items-center justify-center lg:px-0 px-4">
             <input
               type="text"
               placeholder="Поиск"
               value={inputValue}
               onChange={handleSearch}
-              className="text-2xl w-full h-[70px] bg-white py-5 px-8 text-black placeholder:text-black font-light ring-0 outline-none pr-[70px]"
+              className="text-2xl w-full h-[50px] sm:h-[70px] bg-white py-5 px-8 text-black placeholder:text-black font-light ring-0 outline-none pr-[70px]"
             />
             <Search
               size={24}
@@ -63,7 +63,7 @@ export const HomePage: FC = () => {
         </div>
       )}
 
-      <section className="flex flex-wrap justify-center gap-[30px] max-w-[1479px] mx-auto">
+      <section className="flex flex-wrap justify-center sm:gap-[30px] gap-[20px] max-w-[1479px] mx-auto sm:px-0 px-3">
         {isLoading
           ? Array(9)
               .fill(0)

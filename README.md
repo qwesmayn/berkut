@@ -1,54 +1,90 @@
-# React + TypeScript + Vite
+# Berkut - Галерея изображений
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Тестовое задание - многостраничное приложение для просмотра и поиска изображений с использованием внешнего API.
 
-Currently, two official plugins are available:
+## Технологии
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Основные технологии
+- **React 19** - современная библиотека для создания пользовательских интерфейсов
+- **TypeScript** - типизированный JavaScript для повышения надежности кода
+- **Vite** - быстрый инструмент сборки и разработки
+- **React Router DOM 7** - маршрутизация в приложении
+- **TanStack Query** (React Query) - управление серверным состоянием, кеширование запросов
+- **Axios** - HTTP-клиент для выполнения запросов к API
 
-## Expanding the ESLint configuration
+### Стилизация
+- **TailwindCSS 4** - utility-first CSS-фреймворк
+- **clsx** и **tailwind-merge** - утилиты для условного применения классов
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Иконки и UI
+- **Lucide React** - набор иконок
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Архитектура
+
+Проект построен по методологии **Feature-Sliced Design (FSD)** - архитектурная методология для фронтенд-проектов, которая обеспечивает разделение кода на независимые слои и слайсы.
+
+### Слои:
+- **app** - инициализация приложения, провайдеры, глобальные стили
+- **pages** - композиция виджетов и фичей для конкретных страниц
+- **widgets** - композиция компонентов и фичей для конкретных бизнес-задач
+- **features** - пользовательские сценарии и действия
+- **entities** - бизнес-сущности
+- **shared** - переиспользуемые модули, UI-компоненты, утилиты
+
+## Функциональность
+
+- **Главная страница**:
+  - Отображение галереи изображений
+  - Поиск изображений с debounce-эффектом
+  - Адаптивная верстка
+
+- **Страница изображения**:
+  - Детальный просмотр изображения
+  - Добавление в избранное
+  - Скачивание изображения
+  - Просмотр изображения в модальном окне
+  - Эффект blur при загрузке изображения
+
+## Оптимизация
+
+- **Debounce** для поисковых запросов
+- **Кеширование запросов** с помощью React Query
+- **Lazy loading** для изображений
+- **Оптимизация рендеринга** с использованием blur-эффекта при загрузке
+
+## Запуск проекта
+
+```bash
+# Установка зависимостей
+npm install
+
+# Запуск в режиме разработки
+npm run dev
+
+# Сборка проекта
+npm run build
+
+# Предпросмотр собранного проекта
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Структура проекта
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Проект следует архитектуре FSD, что обеспечивает четкое разделение ответственности и упрощает масштабирование:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
 ```
+src/
+├── app/          # Инициализация приложения
+├── pages/        # Страницы
+├── widgets/      # Виджеты
+├── features/     # Фичи
+├── entities/     # Бизнес-сущности
+└── shared/       # Переиспользуемые модули
+```
+
+## Дополнительные особенности
+
+- Типизация данных с использованием TypeScript
+- Обработка ошибок при загрузке данных
+- Состояние загрузки с использованием скелетонов
+- Оптимизация производительности
